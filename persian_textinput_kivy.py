@@ -1,27 +1,31 @@
+# you must have tow library named python_bidi and arabic_reshper
+
 import arabic_reshaper
 from bidi.algorithm import get_display
 
-from kivy.uix.textinput import TextInput
-
+# Importing Kivy related libraries
 from kivy.app import App
 from kivy.lang import Builder
+from kivy.uix.textinput import TextInput
 from kivy.properties import (
                             StringProperty,
                             NumericProperty
                             )
 
+# KV section
+
 KV = '''
 <Fa_text@TextInput>:
     text: "efevresi.com"
     multiline: 0
-    font_name: "/usr/share/fonts/opentype/fonts-hosny-amiri/Amiri-Regular.ttf" # the font you want to use
+    font_name: "data/Lalezar-Regular.ttf" # the font you want to use
     font_size: 26
     padding_y: [6,0] # can be changed
     padding_x: [self.size[0]-self._get_text_width(max(self._lines, key=len), self.tab_width, self._label_cached)-10,8]
 '''
 
 
-
+# Python Section
 
 class Fa_text(TextInput):
     max_chars = NumericProperty(20) # maximum character allowed
